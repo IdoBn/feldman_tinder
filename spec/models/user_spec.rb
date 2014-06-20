@@ -14,6 +14,10 @@ describe User do
 
   context 'associations' do
     it { should have_many(:wants) }
-    it { should have_many(:wantings) }
+    it { should have_many(:want_by) }
   end
+
+  # it 'should match' do
+  #   User.first.matches.should == 
+  # end
 end
