@@ -18,9 +18,9 @@ class User < ActiveRecord::Base
 		self.wants.create(wanted_user_id: wanted_user_id)
 	end
 
-	# def wants?
-		
-	# end
+	def wants?(user_id)
+		wants.where(wanted_user_id: user_id)
+	end
 
 	def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
