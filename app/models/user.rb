@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	has_many :wants, foreign_key: :wanting_user_id
+	has_many :wantings, :class => Want , foreign_key: :wanted_user_id
+
 	def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	    user.provider = auth.provider

@@ -11,4 +11,9 @@ describe User do
   	it { should respond_to(:oauth_expires_at) }
   	it { subject.class.should respond_to(:from_omniauth) }
   end
+
+  context 'associations' do
+    it { should have_many(:wants) }
+    it { should have_many(:wantings) }
+  end
 end
