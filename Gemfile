@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'omniauth-facebook'
 
 group :development, :test do
 	gem 'rspec-rails'
@@ -33,6 +34,7 @@ group :development, :test do
 	gem 'factory_girl_rails', "~> 4.0"
 	gem 'database_cleaner' #for factroy girl
 	gem 'ffaker', '~> 1.23.0'
+	gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
