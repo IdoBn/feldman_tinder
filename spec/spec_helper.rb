@@ -51,4 +51,27 @@ RSpec.configure do |config|
       DatabaseCleaner.clean
     end
   end
+
+  RACK_ENV = ENV['ENVIRONMENT'] ||= 'test'
+  OmniAuth.config.test_mode = true
+  omniauth_hash =
+      {
+        :provider     => "facebook",
+        :uid          => "100004854735666",
+        :info         => {
+          :name       => "Open Graph Test User",
+          :email      => "open_fgqqvkz_user@tfbnw.net"
+        },
+        :credentials  => {
+          :token      => "CAAVLb3MWXzkBACwtAaEhh79C1nzlqJKZCOFyBSSwepjZAfquGyrKTxE3xi6eZBkFWZBZCLkpJG9uRooY0bQZBK98eLJnVn1yxgSlZBZBmlHJP5ojckB2lQDxBZB1m8sM99uPL2qzgHCoHSSqzJWbSWPZA5lOlSP9tcccB41eMHo5mvudAWknetoU8gqyTdmzn9ZBXAjezD1KkvxAAZDZD",
+          :expires_at => 1.hour.from_now
+        },
+        :extra        => {
+          :raw_info   => {
+            :gender   => 'male'
+          }
+        }
+      }
+
+  OmniAuth.config.add_mock(:facebook, omniauth_hash)
 end

@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
 	has_many :wants, foreign_key: :wanting_user_id
 	has_many :wanted_by, :class => Want , foreign_key: :wanted_user_id
 
+	# scope :possible_matches, -> { where(published: true) }
+
+	def possible_matches
+		User.all - self.matches - [self]
+	end
+
 	def matches
 		arr = []
 		user_id = self.id

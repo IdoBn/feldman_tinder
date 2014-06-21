@@ -6,8 +6,7 @@ describe Want do
   end
 
   context 'validations' do
-  	it 'should validate uniquness of wanting > wanted' do 
-  		pending 'should validate uniquness of wanting > wanted'
-  	end
+  	it { validate_uniqueness_of(:wanting_user_id) }
+  	it { validate_uniqueness_of(:wanted_user_id) }
   end
 end
